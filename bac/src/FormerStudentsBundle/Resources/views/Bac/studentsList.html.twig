@@ -1,0 +1,41 @@
+{% extends "FormerStudentsBundle::layout.html.twig" %}
+
+{% block content %}
+<div class='content'>
+<hr>
+{% for student in students %}
+  {% if loop.index0 is divisibleby(4) %}
+  <div class='row'>
+  {% endif %}
+    <div class='col-md-3 portfolio-item'>
+      <div class='panel panel-success'>
+        <div class='panel-heading'>
+          {% if student.civility == 'm' %}
+          <img src="{{ asset('images/png/college.png') }}"/>
+          {% else %}
+          <img src="{{ asset('images/png/people.png') }}"/>
+          {% endif %}
+          {{ student.firstName }}
+          {{ student.lastName }}
+        </div>
+        <div class='panel-body'>
+          <img src="{{ asset('images/png/mail115.png') }}"/> {{ student.email }}<br>
+          <img src="{{ asset('images/png/school72.png') }}"/>{{ student.university.name }}
+          {{ student.university.city }}
+          {{ student.university.country }}<br>
+        </div>
+      </div>
+    </div>
+  {% if loop.index is divisibleby(4) or loop.index == loop.last %}
+  </div>
+  {% endif %}
+{% else %}
+  No students have been found.
+{% endfor %}
+<hr>
+<div class="row text-center">
+  {% include 'FormerStudentsBundle:Bac:pagination.html.twig' %}
+</div>
+<hr>
+</div>
+{% endblock %}

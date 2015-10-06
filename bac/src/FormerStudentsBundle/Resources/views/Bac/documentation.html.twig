@@ -1,0 +1,46 @@
+{% extends "FormerStudentsBundle::layout.html.twig" %}
+
+{% block title %}
+  Documentation - {{ parent() }}
+{% endblock %}
+
+{% block content %}
+  <div class="container-fluid">
+    <div class="row">
+      {% include 'FormerStudentsBundle:Bac:leftMenu.html.twig' %}
+      <div class="col-sm-9">
+        {% if program is defined %}
+        <ul class="nav nav-tabs">
+          {% for partie in program.parties %}
+            <li {% if  loop.index0 == 0 %}class="active" {% endif %}><a href="#{{ partie.id }}" data-toggle="tab"> {{ partie.name }}</a></li>
+          {% else %}
+            Aucune partie
+          {% endfor %}
+        </ul>
+
+        <div class="tabbable">
+          <div class="tab-content">
+            {% for partie in program.parties %}
+            <div class="tab-pane {% if loop.index0 == 0 %}active{% endif %}" id="{{ partie.id }}">
+              {% for chapitre in partie.chapitres %}
+              <div class="well well-sm">{{ chapitre.name }}</div>
+              {% else %}
+                Aucun chapitre
+              {% endfor %}
+            </div>
+            {% else %}
+              Aucune partie
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+  <script src="{{ asset('js/scripts.js') }}" type="text/javascript"></script>
+{% endblock %}
+       
