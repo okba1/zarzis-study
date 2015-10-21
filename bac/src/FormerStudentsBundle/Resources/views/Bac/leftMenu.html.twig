@@ -7,15 +7,17 @@
     <ul class="nav nav-stacked">
         <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#mathMenu">Section Mathématiques <i class="glyphicon glyphicon-chevron-right"></i></a>
             <ul class="nav nav-stacked collapse" id="mathMenu">
-                <li class="active"> <a href="#"><i class="glyphicon glyphicon-pencil"></i> Mathématiques</a></li>
-                <li><a href="#"><i class="glyphicon glyphicon-magnet"></i> Physique <span class="badge badge-info">4</span></a></li>
+                <li class="active"> <a href="{{ path('former_students_documentation_program', {'annee': 4, 'section' : 'mathematiques', 'matiere' : 'mathematiques'}) }}"><i class="glyphicon glyphicon-pencil"></i> Mathématiques</a></li>
+                
+                <li><a href="{{ path('former_students_documentation_program', {'annee': 4, 'section' : 'mathematiques', 'matiere' : 'physique'}) }}"><i class="glyphicon glyphicon-magnet"></i> Physique</a></li>
+
                 <li><a href="#"><i class="glyphicon glyphicon-leaf"></i> SVT</a></li>
-                <li><a href="#"><i class="glyphicon glyphicon-cloud"></i> Informatique</a></li>
+                <li><a href="{{ path('former_students_documentation_program', {'annee': 4, 'section' : 'mathematiques', 'matiere' : 'informatique'}) }}"><i class="glyphicon glyphicon-cloud"></i> Informatique</a></li>
                 <li><a href="#"><i class="glyphicon glyphicon-comment"></i> Français</a></li>
                 <li><a href="#"><i class="glyphicon glyphicon-comment"></i> Anglais</a></li>
             </ul>
         </li>
-        
+       
         <!--<li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#sciencesMenu"> Section Sciences Expérimentales <i class="glyphicon glyphicon-chevron-right"></i></a>
 
             <ul class="nav nav-stacked collapse" id="sciencesMenu">
